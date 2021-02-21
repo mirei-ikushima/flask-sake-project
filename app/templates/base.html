@@ -9,11 +9,10 @@
     {% endif %}
 </head>
 <body>
-    <div>Sake Collection:
-        <a href="{{ url_for('main.index') }}">Home</a>
-        <a href="{{ url_for('login') }}">Log In</a>
-    </div>
-    <hr>
-    {% block content %}{% endblock %}
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+<hr>
+{% block content %}{% endblock %}
 </body>
 </html>
