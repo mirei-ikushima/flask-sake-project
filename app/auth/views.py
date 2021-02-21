@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user, login_required
 from . import auth
 from .forms import RegistrationForm, LoginForm
 from ..models import User
+from ..email import send_email
 from .. import db
 
 
@@ -15,6 +16,8 @@ def register():
         db.session.add(user)
         db.session.commit()
 
+        send_email("Welcome to Sake Collection!", "templates/email/welcome_msg",
+                   user.email, user=user)
         return redirect(url_for("auth.login"))
 
     title = "Register a new account"

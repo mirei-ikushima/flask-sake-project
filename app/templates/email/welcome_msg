@@ -1,0 +1,4 @@
+Dear {{ user.username }},
+
+Welcome to Sake Collection!
+Thank you for choosing to register with us; we hope that you find this service useful!
