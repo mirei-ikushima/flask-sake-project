@@ -5,17 +5,32 @@
 {% endblock %}
 
 {% block content %}
-<form method="post">
-    <p>
-        {{ form.username.label }} {{ form.username(size=32) }}
-    </p>
-    <p>
-        {{ form.email.label }} {{ form.email(size=32) }}
-    </p>
-    <p>
-        {{ form.password.label }} {{ form.password(size=32) }}<br>
-        {{ form.confirm_password.label }} {{ form.confirm_password(size=32) }}
-    </p>
-    <input type="submit" value="Register">
-</form>
+<main class="container">
+    <h2>Register</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>
+                Create an account using your email address!
+            </p>
+            <p>
+            </p>
+            <hr class="solid">
+            <p>
+            </p>
+            <form method="post">
+                <p>
+                    {{ reg_form.username.label }} {{ reg_form.username(size=32) }}
+                </p>
+                <p>
+                    {{ reg_form.email.label }} {{ reg_form.email(size=32) }}
+                </p>
+                <p>
+                    {{ reg_form.password.label }} {{ reg_form.password(size=32) }}<br>
+                    {{ reg_form.confirm_password.label }} {{ reg_form.confirm_password(size=32) }}
+                </p>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+</main>
 {% endblock %}

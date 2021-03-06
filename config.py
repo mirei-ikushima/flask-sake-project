@@ -1,10 +1,12 @@
 import os
 
+RANDOM_KEY = os.urandom(32)
 
-class Config:
+
+class Config(object):
 
     SAKENOTE_TOKEN = os.environ.get("SAKENOTE_TOKEN")
-    SECRET_KEY = os.environ.get("SECRET_KEY")
+    SECRET_KEY = RANDOM_KEY
     SAKENOTE_SAKES_BASE_URL = "https://www.sakenote.com/api/v1/sakes?token={0}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sam:dev7331@localhost/sakelist'

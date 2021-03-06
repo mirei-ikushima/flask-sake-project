@@ -24,6 +24,7 @@ body {
     max-width: 1000px;
     padding-left: 1.4rem;
     padding-right: 1.4rem;
+    padding-top: 70px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -213,4 +214,9 @@ body {
     #navbar .navbar-link:last-child {
         margin-right: 0;
     }
+}
+
+
+hr.solid {
+    border-top: 2px solid #999;
 }

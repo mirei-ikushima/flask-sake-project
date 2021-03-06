@@ -9,10 +9,10 @@ from .. import db
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, password=form.password.data,
-                    email=form.email.data)
+    reg_form = RegistrationForm()
+    if reg_form.validate_on_submit():
+        user = User(username=reg_form.username.data, password=reg_form.password.data,
+                    email=reg_form.email.data)
         db.session.add(user)
         db.session.commit()
 
@@ -21,7 +21,9 @@ def register():
         return redirect(url_for("auth.login"))
 
     title = "Register a new account"
-    return render_template("auth/register.html", registration_form=form, title=title)
+    return render_template("auth/register.html",
+                           reg_form=reg_form,
+                           title=title)
 
 
 @auth.route('/login', methods=['GET', 'POST'])

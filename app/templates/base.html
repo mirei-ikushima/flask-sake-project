@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-    <title>{{ title }} - Sake Collection</title>
-    {% else %}
-    <title>Welcome to Sake Collection!</title>
-    {% endif %}
-</head>
 <body>
 {% block navbar %}
     {% include 'navbar.html' %}
 {% endblock %}
-<hr>
+
 {% block content %}{% endblock %}
 </body>
 </html>

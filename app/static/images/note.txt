@@ -1,0 +1,1 @@
+There are images in this folder for use with the webapp but they're ignored on Git in order to avoid any potential issues with image attribution, copyright and so on.

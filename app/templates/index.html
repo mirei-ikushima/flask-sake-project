@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Welcome, {{ user.username }}!</h1>
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h1 class="mx-auto my-0 text-uppercase">Sake Collection</h1>
+            <h2 class="mx-auto mt-2 mb-5">Build a record of your sake collection!</h2>
+            <a class="btn-lg btn-danger" href="{{ url_for('auth.register') }}">Register for free!</a>
+        </div>
+    </div>
+</header>
+<section id="collection" class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-dark mb-4">What sakes have you bought before?</h2>
+                <p class="text-dark">
+                    Sake Collection helps you keep track of your favourite sake!
+                    <br>
+                    Add notes and keep a list so you can remember why you liked that one bottle!
+                </p>
+            </div>
+        </div>
+        <img class="img-fluid" src="{{ url_for('static',filename='images/sake1.png') }}" alt="">
+    </div>
+</section>
 {% endblock %}
