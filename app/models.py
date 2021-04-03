@@ -1,5 +1,5 @@
 from . import db
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from . import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -11,6 +11,7 @@ def user_loader(user_id):
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255), index=True, unique=True)
@@ -29,3 +30,21 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return 'User {0}'.format(self.username)
+
+
+class Bottle(db.Model):
+    __tablename__ = "bottles"
+
+    id = db.Column(db.Integer, primary_key=True)
+    label = db.Column(db.String)
+    identifier = db.Column(db.String)
+    category = db.Column(db.String)
+    maker = db.Column(db.String)
+    status = db.Column(db.String)
+    region = db.Column(db.String)
+    price = db.Column(db.Float)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def save_bottle(self):
+        db.session.add(self)
+        db.session.commit()
