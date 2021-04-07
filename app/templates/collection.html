@@ -1,0 +1,46 @@
+{% extends 'base.html %}
+
+{% block content %}
+<main id="main" class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="bottom-floating">
+                <a class="btn-danger btn-sm" href="{{ url_for('main.collection/newbottle')" title="Add a new bottle">
+                    Add New Bottle
+                </a>
+            </div>
+            <div>
+                <div id="profile_header" class="row justify-content-md-left align-items-center">
+                    <div class="col-auto">
+                        <h3>{{ user.username }}'s Collection
+                            <br>
+                        </h3>
+                    </div>
+                </div>
+                <p></p>
+                <div>
+                    {% if user.bottles %}
+                    <table>
+                        {% for bottle in bottles %}
+                        <tr valign="top">
+                            <td><img src="{{ url_for('static', filename=bottle.photo) }}"></td>
+                            <td>Label: {{ bottle.label }}</td>
+                            {% if bottle.identifier %}
+                            <td>Identifier: {{ bottle.identifier }}</td>
+                            {% endif %}
+                            <td>Category: {{ bottle.category }}</td>
+                            <td>Maker: {{ bottle.maker }}</td>
+                            <td>Status: {{ bottle.status }}</td>
+                            <td>Region: {{ bottle.region }}</td>
+                            <td>Price: {{ bottle.price }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% else %}
+                    <h2>You don't have any bottles in your collection! Add some now!</h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

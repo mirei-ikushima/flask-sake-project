@@ -20,7 +20,7 @@ def register():
                    user.email, user=user)
         return redirect(url_for("auth.login"))
 
-    title = "Register a new account"
+    title = "Register"
     return render_template("auth/register.html",
                            reg_form=reg_form,
                            title=title)
@@ -33,7 +33,8 @@ def login():
         user = User.query.filter_by(name=login_form.username.data).first()
         if user is not None and user.verify_password(login_form.password.data):
             login_user(user, login_form.remember.data)
-            return redirect(url_for("main.index"))
+            return redirect(url_for("main.collection",
+                                    name=user.username))
         else:
             flash("Incorrect username or password")
 

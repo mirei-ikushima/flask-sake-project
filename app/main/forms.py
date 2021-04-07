@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SelectField, TextAreaField, DecimalField, SubmitField
-from wtforms.validators import InputRequired
+from wtforms.validators import InputRequired, Optional
 
 region_choices = ['Hokkaido', 'Aomori', 'Iwate', 'Miyagi', 'Akita', 'Yamagata', 'Fukushima', 'Ibaraki', 'Tochigi',
                   'Gunma', 'Saitama', 'Chiba', 'Tokyo', 'Kanagawa', 'Niigata', 'Toyama', 'Ishikawa', 'Fukui',
@@ -12,7 +12,7 @@ region_choices = ['Hokkaido', 'Aomori', 'Iwate', 'Miyagi', 'Akita', 'Yamagata', 
 
 class NewBottleForm(FlaskForm):
     label = StringField('Label', validators=[InputRequired()])
-    identifier = TextAreaField("Identifier", validators=[InputRequired()])
+    identifier = TextAreaField("Identifier")
     photo = FileField('Photo', validators=[FileAllowed(['png', 'jpeg', 'jpg', 'gif'], 'Incorrect file format')])
     category = SelectField('Category', choices=["Honjozo-shu", "Junmai-shu", "Ginjo-shu", "Junmai Ginjo-shu",
                                                 "Daiginjo-shu", "Junmai Daiginjo-shu"], validators=[InputRequired()])

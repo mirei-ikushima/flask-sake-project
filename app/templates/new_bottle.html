@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="container">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <div class="modal-header">
+                    <h4 class="modal-title">Add a new bottle</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.label.label }}
+                        </strong>
+                        {{ bottle_form.label(size=32) }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.identifier.label }}
+                        </strong>
+                        {{ bottle_form.identifier(size=32) }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.photo.label }}
+                        </strong>
+                        {{ bottle_form.photo }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.category.label }}
+                        </strong>
+                        {{ bottle_form.category }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.maker.label }}
+                        </strong>
+                        {{ bottle_form.maker(size=32) }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.status.label }}
+                        </strong>
+                        {{ bottle_form.status }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.region.label }}
+                        </strong>
+                        {{ bottle_form.region }}
+                    </div>
+                    <div class="mb-3">
+                        <strong>
+                            {{ bottle_form.price.label }}
+                        </strong>
+                        {{ bottle_form.price }}
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Save">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

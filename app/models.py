@@ -1,5 +1,5 @@
 from . import db
-from flask_login import UserMixin, current_user
+from flask_login import UserMixin
 from . import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -16,6 +16,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255))
     email = db.Column(db.String(255), index=True, unique=True)
     password_hash = db.Column(db.String(255))
+    bottles = db.relationship('Bottle', backref='user', lazy='dynamic')
 
     @property
     def password(self):
@@ -38,6 +39,7 @@ class Bottle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     label = db.Column(db.String)
     identifier = db.Column(db.String)
+    photo = db.Column(db.String)
     category = db.Column(db.String)
     maker = db.Column(db.String)
     status = db.Column(db.String)

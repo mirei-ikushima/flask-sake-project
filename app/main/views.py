@@ -29,24 +29,24 @@ def collection(name):
                            bottles=bottles)
 
 
-@main.route('/collection/<name>/newbottle', methods=['GET', 'POST'])
+@main.route('/collection/newbottle', methods=['GET', 'POST'])
 @login_required
 def update_collection():
-    form = NewBottleForm()
+    bottle_form = NewBottleForm()
 
-    if form.validate_on_submit():
-        f = form.photo.data
+    if bottle_form.validate_on_submit():
+        f = bottle_form.photo.data
         fname = secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOADS_FOLDER'], fname))
 
-        new_bottle = Bottle(label=form.label.data,
-                            identifier=form.identifier.data,
+        new_bottle = Bottle(label=bottle_form.label.data,
+                            identifier=bottle_form.identifier.data,
                             photo=fname,
-                            category=form.category.data,
-                            maker=form.maker.data,
-                            status=form.status.data,
-                            region=form.region.data,
-                            price=form.price.data,
+                            category=bottle_form.category.data,
+                            maker=bottle_form.maker.data,
+                            status=bottle_form.status.data,
+                            region=bottle_form.region.data,
+                            price=bottle_form.price.data,
                             user_id=current_user
                             )
         new_bottle.save_bottle()
@@ -56,4 +56,4 @@ def update_collection():
 
     return render_template('new_bottle.html',
                            title='New Bottle',
-                           form=form)
+                           form=bottle_form)
