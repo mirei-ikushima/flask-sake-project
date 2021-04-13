@@ -13,7 +13,8 @@
             <hr class="solid">
             <p>
             </p>
-            <form method="post">
+            <form method="POST">
+                {{ reg_form.csrf_token() }}
                 <p>
                     {{ reg_form.username.label }} {{ reg_form.username(size=32) }}
                 </p>

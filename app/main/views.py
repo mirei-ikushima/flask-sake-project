@@ -21,7 +21,7 @@ def collection(name):
 
     title = user.username
 
-    bottles = Bottle.query.filter_by(user_id=name).all()
+    bottles = Bottle.query.filter_by(user_id=User.id).all()
 
     return render_template('collection.html',
                            user=user,

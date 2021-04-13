@@ -13,7 +13,7 @@
             <hr class="solid">
             <p>
             </p>
-            <form method="post">
+            <form method="POST">
                 {{ login_form.csrf_token() }}
                 <p>
                     {{ login_form.username.label }} {{ login_form.username(size=32) }}

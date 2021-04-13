@@ -28,12 +28,12 @@
                             {% if current_user.is_anonymous %}
                             <a class="nav-link" href="{{ url_for('auth.login') }}">Log in/Register</a>
                             {% else %}
-                            <a class="nav-link" href="{{ url_for('auth.logout') }}">Log out</a>
+                            <a class="nav-link" href="{{ url_for('auth.log_out') }}">Log out</a>
                             {% endif %}
                         </li>
                         {% if not current_user.is_anonymous %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('main.collection, name=current_user.username') }}">
+                            <a class="nav-link" href="{{ url_for('main.collection', name=current_user.username) }}">
                                 Your Collection
                             </a>
                         </li>

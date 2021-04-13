@@ -4,8 +4,8 @@
 <main id="main" class="container">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" enctype="multipart/form-data">
-                {{ form.csrf_token }}
+            <form method="POST" enctype="multipart/form-data">
+                {{ bottle_form.csrf_token }}
                 <div class="modal-header">
                     <h4 class="modal-title">Add a new bottle</h4>
                 </div>

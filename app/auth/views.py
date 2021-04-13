@@ -16,7 +16,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        send_email("Welcome to Sake Collection!", "templates/email/welcome_msg",
+        send_email("Welcome to Sake Collection!", "email/welcome_msg",
                    user.email, user=user)
         return redirect(url_for("auth.login"))
 
@@ -30,9 +30,9 @@ def register():
 def login():
     login_form = LoginForm()
     if login_form.validate_on_submit():
-        user = User.query.filter_by(name=login_form.username.data).first()
+        user = User.query.filter_by(username=login_form.username.data).first()
         if user is not None and user.verify_password(login_form.password.data):
-            login_user(user, login_form.remember.data)
+            login_user(user, login_form.remember_me.data)
             return redirect(url_for("main.collection",
                                     name=user.username))
         else:
