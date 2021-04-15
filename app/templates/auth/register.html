@@ -27,6 +27,11 @@
                 </p>
                 <input type="submit" value="Register">
             </form>
+            {% for field, errors in reg_form.errors.items() %}
+            <div class="alert alert-error">
+            {{ reg_form[field].label }}: {{ ', '.join(errors) }}
+            </div>
+            {% endfor %}
         </div>
     </div>
 </main>

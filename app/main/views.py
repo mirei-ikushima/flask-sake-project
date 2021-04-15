@@ -56,4 +56,4 @@ def update_collection():
 
     return render_template('new_bottle.html',
                            title='New Bottle',
-                           form=bottle_form)
+                           bottle_form=bottle_form)

@@ -29,6 +29,11 @@
             <p>
                 Don't have an account? <a href="{{ url_for('auth.register') }}">Sign up</a>
             </p>
+            {% for field, errors in login_form.errors.items() %}
+            <div class="alert alert-error">
+            {{ login_form[field].label }}: {{ ', '.join(errors) }}
+            </div>
+            {% endfor %}
         </div>
     </div>
 </main>
