@@ -2,6 +2,7 @@ import os
 from flask import render_template, redirect, url_for, abort
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
+from app import create_app
 from . import main
 from .forms import NewBottleForm
 from ..models import User, Bottle
@@ -21,7 +22,7 @@ def collection(name):
 
     title = user.username
 
-    bottles = Bottle.query.filter_by(user_id=User.id).all()
+    bottles = Bottle.query.filter_by(user_id=user.id).all()
 
     return render_template('collection.html',
                            user=user,
@@ -35,21 +36,36 @@ def update_collection():
     bottle_form = NewBottleForm()
 
     if bottle_form.validate_on_submit():
-        f = bottle_form.photo.data
-        fname = secure_filename(f.filename)
-        f.save(os.path.join(app.config['UPLOADS_FOLDER'], fname))
 
-        new_bottle = Bottle(label=bottle_form.label.data,
-                            identifier=bottle_form.identifier.data,
-                            photo=fname,
-                            category=bottle_form.category.data,
-                            maker=bottle_form.maker.data,
-                            status=bottle_form.status.data,
-                            region=bottle_form.region.data,
-                            price=bottle_form.price.data,
-                            user_id=current_user
-                            )
-        new_bottle.save_bottle()
+        if bottle_form.photo.data:
+            f = bottle_form.photo.data
+            fname = secure_filename(f.filename)
+            f.save(os.path.join(create_app().config['UPLOADS_FOLDER'], fname))
+
+            new_bottle = Bottle(label=bottle_form.label.data,
+                                identifier=bottle_form.identifier.data,
+                                photo=fname,
+                                category=bottle_form.category.data,
+                                maker=bottle_form.maker.data,
+                                status=bottle_form.status.data,
+                                region=bottle_form.region.data,
+                                price=bottle_form.price.data,
+                                user_id=current_user
+                                )
+            new_bottle.save_bottle()
+
+        else:
+            new_bottle = Bottle(label=bottle_form.label.data,
+                                identifier=bottle_form.identifier.data,
+                                photo=None,
+                                category=bottle_form.category.data,
+                                maker=bottle_form.maker.data,
+                                status=bottle_form.status.data,
+                                region=bottle_form.region.data,
+                                price=bottle_form.price.data,
+                                user_id=current_user
+                                )
+            new_bottle.save_bottle()
 
         return redirect(url_for('collection.html',
                                 user=current_user))

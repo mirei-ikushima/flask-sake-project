@@ -2,6 +2,8 @@ import os
 
 RANDOM_KEY = os.urandom(32)
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 class Config(object):
 
@@ -16,4 +18,4 @@ class Config(object):
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
-    UPLOADS_FOLDER = r"static/uploads"
+    UPLOADS_FOLDER = basedir + "\\app\\static\\uploads"
