@@ -27,7 +27,11 @@
                                     {% endif %}
                                 </td>
                                 <td class="top">
-                                    <h3>{{ bottle.label }}</h3>
+                                    <h3>
+                                        <a href="{{ url_for('main.single_bottle', id=bottle.id) }}">
+                                        {{ bottle.label }}
+                                        </a>
+                                    </h3>
                                     {% if bottle.identifier %}
                                     Identifier: {{ bottle.identifier }}
                                     {% endif %}

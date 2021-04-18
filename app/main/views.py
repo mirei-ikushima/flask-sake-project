@@ -73,3 +73,14 @@ def update_collection():
     return render_template('new_bottle.html',
                            title='New Bottle',
                            bottle_form=bottle_form)
+
+
+@main.route('/collection/<int:id>')
+def single_bottle(id):
+    onebottle = Bottle.query.get(id)
+
+    if onebottle is None:
+        abort(404)
+
+    return render_template("bottle.html",
+                           bottle=onebottle)

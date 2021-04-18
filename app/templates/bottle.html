@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="container">
+    <div class="row justify-content-start">
+        <div class="col-sm-1"></div>
+        <div class="col-md-6">
+            <h2>{{ bottle.label }}</h2>
+        </div>
+        <div class="col-sm-3">
+            <div class="bottom-floating">
+                <div class="btn-group" role="group" aria-label="Button group">
+                    <a class="button btn alert-dark" href="{{ url_for('main.index') }}">Edit</a>
+                    <a class="button btn alert-dark" href="{{ url_for('main.index') }}">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-sm-4">
+            {% if bottle.photo %}
+            <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}">
+            {% else %}
+            <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <p></p>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Identifier</td>
+                    {% if bottle.identifier %}
+                    <td>{{ bottle.identifier }}</td>
+                    {% else %}
+                    <td>No identifier provided.</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Brewery</td>
+                    <td>{{ bottle.maker }}</td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td>{{ bottle.category }}</td>
+                </tr>
+                <tr>
+                    <td>Region</td>
+                    <td>{{ bottle.region }}</td>
+                </tr>
+                <tr>
+                    <td>Bottle Status</td>
+                    <td>{{ bottle.status }}</td>
+                </tr>
+                <tr>
+                    <td>Price paid</td>
+                    <td>{{ bottle.price }}</td>
+                </tr>
+                <tr>
+                    <td>Date added</td>
+                    <td>{{ moment(bottle.posted).format('MMMM Do YYYY') }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+{% endblock %}
