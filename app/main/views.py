@@ -50,7 +50,7 @@ def update_collection():
                                 status=bottle_form.status.data,
                                 region=bottle_form.region.data,
                                 price=bottle_form.price.data,
-                                user_id=current_user
+                                user_id=current_user.id
                                 )
             new_bottle.save_bottle()
 
@@ -63,12 +63,12 @@ def update_collection():
                                 status=bottle_form.status.data,
                                 region=bottle_form.region.data,
                                 price=bottle_form.price.data,
-                                user_id=current_user
+                                user_id=current_user.id
                                 )
             new_bottle.save_bottle()
 
-        return redirect(url_for('collection.html',
-                                user=current_user))
+        return redirect(url_for('main.collection',
+                                name=current_user.username))
 
     return render_template('new_bottle.html',
                            title='New Bottle',

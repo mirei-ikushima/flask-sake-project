@@ -20,5 +20,5 @@ class NewBottleForm(FlaskForm):
     maker = StringField('Maker', validators=[InputRequired()])
     status = SelectField('Status', choices=['Unopened', 'Opened', 'Finished'], validators=[InputRequired()])
     region = SelectField('Region', choices=region_choices, validators=[InputRequired()])
-    price = DecimalField(validators=[InputRequired()])
+    price = StringField(validators=[InputRequired()])
     submit = SubmitField('Submit')

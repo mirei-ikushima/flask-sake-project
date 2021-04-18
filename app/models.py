@@ -2,6 +2,7 @@ from . import db
 from flask_login import UserMixin
 from . import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 
 @login_manager.user_loader
@@ -44,7 +45,8 @@ class Bottle(db.Model):
     maker = db.Column(db.String)
     status = db.Column(db.String)
     region = db.Column(db.String)
-    price = db.Column(db.Float)
+    price = db.Column(db.String)
+    posted = db.Column(db.DateTime, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def save_bottle(self):
