@@ -32,6 +32,10 @@
                                         {{ bottle.label }}
                                         </a>
                                     </h3>
+                                    Owner: <a href="{{ url_for('main.collection', name=bottle.owner) }}">
+                                    {{ bottle.owner }}
+                                </a>
+                                    <br>
                                     {% if bottle.identifier %}
                                     Identifier: {{ bottle.identifier }}
                                     {% endif %}

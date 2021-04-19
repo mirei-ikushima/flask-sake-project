@@ -7,7 +7,11 @@
             <form method="POST" enctype="multipart/form-data">
                 {{ bottle_form.csrf_token }}
                 <div class="modal-header">
+                    {% if originalbottle.label %}
+                    <h4 class="modal-title">Edit {{ originalbottle.label }}</h4>
+                    {% else %}
                     <h4 class="modal-title">Add a new bottle</h4>
+                    {% endif %}
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">

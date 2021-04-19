@@ -38,6 +38,7 @@ class Bottle(db.Model):
     __tablename__ = "bottles"
 
     id = db.Column(db.Integer, primary_key=True)
+    owner = db.Column(db.String)
     label = db.Column(db.String)
     identifier = db.Column(db.String)
     photo = db.Column(db.String)
@@ -51,4 +52,8 @@ class Bottle(db.Model):
 
     def save_bottle(self):
         db.session.add(self)
+        db.session.commit()
+
+    def delete_bottle(self):
+        db.session.delete(self)
         db.session.commit()

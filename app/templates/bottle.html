@@ -8,12 +8,16 @@
             <h2>{{ bottle.label }}</h2>
         </div>
         <div class="col-sm-3">
+            {% if current_user.id == bottle.user_id %}
             <div class="bottom-floating">
                 <div class="btn-group" role="group" aria-label="Button group">
-                    <a class="button btn alert-dark" href="{{ url_for('main.index') }}">Edit</a>
-                    <a class="button btn alert-dark" href="{{ url_for('main.index') }}">Delete</a>
+                    <a class="button btn alert-dark" href="{{ url_for('main.edit_bottle', id=bottle.id) }}">Edit</a>
+                    <form method="post" action="{{ url_for('main.delete_bottle', id=bottle.id) }}">
+                        <input class="button btn alert-dark" type="submit" name="delete" value="Delete">
+                    </form>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
     <div class="row justify-content-start">
@@ -28,6 +32,14 @@
             <p></p>
             <table class="table">
                 <tbody>
+                <tr>
+                    <td>
+                        Owner
+                    </td>
+                    <td>
+                        <a href="{{ url_for('main.collection', name=bottle.owner) }}">{{ bottle.owner }}</a>
+                    </td>
+                </tr>
                 <tr>
                     <td>Identifier</td>
                     {% if bottle.identifier %}

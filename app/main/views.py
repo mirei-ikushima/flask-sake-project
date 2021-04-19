@@ -42,7 +42,8 @@ def update_collection():
             fname = secure_filename(f.filename)
             f.save(os.path.join(create_app().config['UPLOADS_FOLDER'], fname))
 
-            new_bottle = Bottle(label=bottle_form.label.data,
+            new_bottle = Bottle(owner=current_user.username,
+                                label=bottle_form.label.data,
                                 identifier=bottle_form.identifier.data,
                                 photo=fname,
                                 category=bottle_form.category.data,
@@ -55,7 +56,8 @@ def update_collection():
             new_bottle.save_bottle()
 
         else:
-            new_bottle = Bottle(label=bottle_form.label.data,
+            new_bottle = Bottle(owner=current_user.username,
+                                label=bottle_form.label.data,
                                 identifier=bottle_form.identifier.data,
                                 photo=None,
                                 category=bottle_form.category.data,
@@ -72,7 +74,50 @@ def update_collection():
 
     return render_template('new_bottle.html',
                            title='New Bottle',
-                           bottle_form=bottle_form)
+                           bottle_form=bottle_form,
+                           originalbottle=None)
+
+
+@main.route('/collection/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_bottle(id):
+    bottle_id = Bottle.query.get(id)
+    bottle_id.delete_bottle()
+
+    return redirect(url_for('main.collection',
+                            name=current_user.username))
+
+
+@main.route('/collection/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_bottle(id):
+    bottle_id = Bottle.query.get(id)
+
+    edit_form = NewBottleForm(obj=bottle_id)
+
+    if edit_form.validate_on_submit():
+
+        if edit_form.photo.data:
+            f = edit_form.photo.data
+            fname = secure_filename(f.filename)
+            f.save(os.path.join(create_app().config['UPLOADS_FOLDER'], fname))
+
+            edit_form.populate_obj(bottle_id)
+            bottle_id.photo = fname
+            bottle_id.save_bottle()
+
+        else:
+
+            edit_form.populate_obj(bottle_id)
+            bottle_id.save_bottle()
+
+        return redirect(url_for('main.collection',
+                                name=current_user.username))
+
+    return render_template('new_bottle.html',
+                           title='Edit Bottle',
+                           bottle_form=edit_form,
+                           originalbottle=bottle_id)
 
 
 @main.route('/collection/<int:id>')
@@ -82,5 +127,8 @@ def single_bottle(id):
     if onebottle is None:
         abort(404)
 
+    title = onebottle.label
+
     return render_template("bottle.html",
-                           bottle=onebottle)
+                           bottle=onebottle,
+                           title=title)
