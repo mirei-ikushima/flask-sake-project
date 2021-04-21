@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <h2>Request a password reset</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>
+                Tell us your email address so we can send you a password reset form!
+            </p>
+            <p>
+            </p>
+            <hr class="solid">
+            <p>
+            </p>
+            <form method="POST">
+                {{ request_form.csrf_token() }}
+                <p>
+                    {{ request_form.email.label }} {{ request_form.email }}
+                </p>
+                <input type="submit" value="Send request">
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

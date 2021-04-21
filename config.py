@@ -1,13 +1,15 @@
+from base64 import b64encode
 import os
 
 RANDOM_KEY = os.urandom(32)
+STRING_RANDOM = b64encode(RANDOM_KEY).decode('utf-8')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
 
-    SECRET_KEY = RANDOM_KEY
+    SECRET_KEY = STRING_RANDOM
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sam:dev7331@localhost/sakelist'
 

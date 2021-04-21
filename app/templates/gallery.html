@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="container">
+    <div class="row align-items-center justify-content-between">
+        <div class="col-auto"><h4>{{ total_num }} collection(s) available</h4></div>
+    </div>
+    {% if users.bottles %}
+    <ul class="list-group list-group-flush">
+        {% for user in users %}
+        <li class="list-group-item">
+            <div class="row justify-content-md-left">
+                <div class="col-auto">
+                    <h3><a href="{{ url_for('main.collection', name=user.username) }}">{{ user.username }}</a></h3>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    {% for bottle in user.bottles %}
+                    <a href="{{ url_for('main.single_bottle', id=bottle.id) }}">
+                        {% if user.bottles.photo %}
+                        <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="">
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="alert alert-danger">
+        <p>Looks like nobody has created a collection yet!</p>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}

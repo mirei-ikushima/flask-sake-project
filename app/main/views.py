@@ -2,7 +2,7 @@ import os
 from flask import render_template, redirect, url_for, abort
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
-from app import create_app
+from app import create_app, db
 from . import main
 from .forms import NewBottleForm
 from ..models import User, Bottle
@@ -28,6 +28,22 @@ def collection(name):
                            user=user,
                            title=title,
                            bottles=bottles)
+
+
+@main.route('/collections')
+def all_collections():
+    users = User.query.all()
+
+    if users is None:
+        return redirect(url_for('main.collection',
+                                name=current_user.username))
+
+    total_collections = db.session.query(User.bottles).count()
+
+    return render_template('gallery.html',
+                           users=users,
+                           total_num=total_collections,
+                           title='Browse Collections')
 
 
 @main.route('/collection/newbottle', methods=['GET', 'POST'])

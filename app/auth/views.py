@@ -1,7 +1,7 @@
 from flask import redirect, url_for, render_template, flash
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 from . import auth
-from .forms import RegistrationForm, LoginForm
+from .forms import RegistrationForm, LoginForm, PasswordResetRequest, PasswordResetForm
 from ..models import User
 from ..emails import send_email
 from .. import db
@@ -42,6 +42,50 @@ def login():
     return render_template("auth/login.html",
                            login_form=login_form,
                            title=title)
+
+
+@auth.route('/request_password_reset', methods=['GET', 'POST'])
+def request_reset_password():
+
+    if current_user.is_authenticated:
+        return redirect(url_for('main.collection',
+                                name=current_user.username))
+
+    request_form = PasswordResetRequest()
+    if request_form.validate_on_submit():
+        user = User.query.filter_by(email=request_form.email.data).first()
+
+        if user:
+            token = user.get_reset_token()
+            send_email("Sake Collection - Reset your password", "email/password_reset_mail",
+                       user.email, user=user, token=token)
+        return redirect(url_for('auth.login'))
+
+    return render_template("auth/reset_pass_request.html",
+                           request_form=request_form,
+                           title="Request Password Reset")
+
+
+@auth.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('main.collection',
+                                name=current_user.username))
+
+    user = User.verify_reset_token(token)
+
+    if not user:
+        return redirect(url_for('main.index'))
+
+    reset_form = PasswordResetForm()
+    if reset_form.validate_on_submit():
+        user.password = reset_form.new_password1.data
+        db.session.commit()
+
+        return redirect(url_for('auth.login'))
+
+    return render_template('auth/reset_password.html',
+                           reset_form=reset_form)
 
 
 @auth.route('/logout')
