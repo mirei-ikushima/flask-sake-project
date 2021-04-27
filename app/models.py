@@ -49,6 +49,14 @@ class User(UserMixin, db.Model):
 
         return User.query.get(id)
 
+    @classmethod
+    def users_with_bottles(cls):
+        return cls.query.join(cls.bottles).group_by(cls.id, Bottle.id).having(Bottle.id >= 1).all()
+
+    @classmethod
+    def bottles_total(cls):
+        return cls.query.join(cls.bottles).count()
+
     def __repr__(self):
         return 'User {0}'.format(self.username)
 
@@ -66,6 +74,7 @@ class Bottle(db.Model):
     status = db.Column(db.String)
     region = db.Column(db.String)
     price = db.Column(db.String)
+    notes = db.Column(db.String)
     posted = db.Column(db.DateTime, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
@@ -76,3 +85,7 @@ class Bottle(db.Model):
     def delete_bottle(self):
         db.session.delete(self)
         db.session.commit()
+
+    @classmethod
+    def total_collections(cls):
+        return cls.query.distinct(cls.user_id).count()

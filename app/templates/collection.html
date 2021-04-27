@@ -13,6 +13,11 @@
                     </div>
                 </div>
                 <p></p>
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto">
+                        {{ user.username}}'s total collection: {{ user_total }} bottles
+                    </div>
+                </div>
                 <div>
                     {% if bottles %}
                     <table class="table table-striped table-hover">

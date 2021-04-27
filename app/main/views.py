@@ -2,7 +2,7 @@ import os
 from flask import render_template, redirect, url_for, abort
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
-from app import create_app, db
+from app import create_app
 from . import main
 from .forms import NewBottleForm
 from ..models import User, Bottle
@@ -24,21 +24,24 @@ def collection(name):
 
     bottles = Bottle.query.filter_by(user_id=user.id).all()
 
+    user_total = User.bottles_total()
+
     return render_template('collection.html',
                            user=user,
+                           user_total=user_total,
                            title=title,
                            bottles=bottles)
 
 
 @main.route('/collections')
 def all_collections():
-    users = User.query.all()
+    users = User.users_with_bottles()
 
     if users is None:
         return redirect(url_for('main.collection',
                                 name=current_user.username))
 
-    total_collections = db.session.query(User.bottles).count()
+    total_collections = Bottle.total_collections()
 
     return render_template('gallery.html',
                            users=users,
@@ -67,6 +70,7 @@ def update_collection():
                                 status=bottle_form.status.data,
                                 region=bottle_form.region.data,
                                 price=bottle_form.price.data,
+                                notes=bottle_form.notes.data,
                                 user_id=current_user.id
                                 )
             new_bottle.save_bottle()
@@ -81,6 +85,7 @@ def update_collection():
                                 status=bottle_form.status.data,
                                 region=bottle_form.region.data,
                                 price=bottle_form.price.data,
+                                notes=bottle_form.notes.data,
                                 user_id=current_user.id
                                 )
             new_bottle.save_bottle()
