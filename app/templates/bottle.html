@@ -25,7 +25,7 @@
             {% if bottle.photo %}
             <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}">
             {% else %}
-            <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="">
+            <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="" width="250">
             {% endif %}
         </div>
         <div class="col-md-6">
@@ -67,6 +67,10 @@
                 <tr>
                     <td>Price paid</td>
                     <td>{{ bottle.price }}</td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td>{{ bottle.notes }}</td>
                 </tr>
                 <tr>
                     <td>Date added</td>

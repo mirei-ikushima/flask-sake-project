@@ -13,8 +13,9 @@ def index():
     return render_template('index.html')
 
 
-@main.route('/collection/<name>')
-def collection(name):
+@main.route('/collection/<name>/<int:page>')
+@main.route('/collection/<name>/', defaults={"page": 1})
+def collection(name, page):
     user = User.query.filter_by(username=name).first()
 
     if user is None:
@@ -22,9 +23,9 @@ def collection(name):
 
     title = user.username
 
-    bottles = Bottle.query.filter_by(user_id=user.id).all()
+    bottles = Bottle.query.filter_by(user_id=user.id).paginate(page=page, per_page=15, error_out=False)
 
-    user_total = User.bottles_total()
+    user_total = User.bottles_total(name)
 
     return render_template('collection.html',
                            user=user,
@@ -33,9 +34,10 @@ def collection(name):
                            bottles=bottles)
 
 
-@main.route('/collections')
-def all_collections():
-    users = User.users_with_bottles()
+@main.route('/collections/<int:page>')
+@main.route('/collections/', defaults={"page": 1})
+def all_collections(page):
+    users = User.users_with_bottles().paginate(page=page, per_page=10, error_out=False)
 
     if users is None:
         return redirect(url_for('main.collection',
@@ -113,6 +115,7 @@ def delete_bottle(id):
 @login_required
 def edit_bottle(id):
     bottle_id = Bottle.query.get(id)
+    label = bottle_id.label
 
     edit_form = NewBottleForm(obj=bottle_id)
 
@@ -136,7 +139,7 @@ def edit_bottle(id):
                                 name=current_user.username))
 
     return render_template('new_bottle.html',
-                           title='Edit Bottle',
+                           title='Edit {0}'.format(label),
                            bottle_form=edit_form,
                            originalbottle=bottle_id)
 

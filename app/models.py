@@ -51,11 +51,11 @@ class User(UserMixin, db.Model):
 
     @classmethod
     def users_with_bottles(cls):
-        return cls.query.join(cls.bottles).group_by(cls.id, Bottle.id).having(Bottle.id >= 1).all()
+        return cls.query.join(cls.bottles).group_by(cls.id, Bottle.id).having(Bottle.id >= 1)
 
     @classmethod
-    def bottles_total(cls):
-        return cls.query.join(cls.bottles).count()
+    def bottles_total(cls, name):
+        return cls.query.join(cls.bottles).filter(cls.username == name).count()
 
     def __repr__(self):
         return 'User {0}'.format(self.username)

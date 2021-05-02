@@ -7,7 +7,7 @@
     </div>
     {% if users %}
     <ul class="list-group list-group-flush">
-        {% for user in users %}
+        {% for user in users.items %}
         <li class="list-group-item">
             <div class="row justify-content-md-left">
                 <div class="col-auto">
@@ -16,13 +16,15 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row d-flex align-items-center">
                     {% for bottle in user.bottles[:12] %}
                     <a href="{{ url_for('main.single_bottle', id=bottle.id) }}">
                         {% if user.bottles.photo %}
-                        <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}">
+                        <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}" height="60" vspace="10"
+                        hspace="5">
                         {% else %}
-                        <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="">
+                        <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="" height="60"
+                             vspace="10" hspace="5">
                         {% endif %}
                     </a>
                     {% endfor %}
@@ -32,6 +34,21 @@
         </li>
         {% endfor %}
     </ul>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% for page in users.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
+                {% if page %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('main.all_collections', page=page) }}">{{ page }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        ...
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
     {% else %}
     <div class="alert alert-danger">
         <p>Looks like nobody has created a collection yet!</p>

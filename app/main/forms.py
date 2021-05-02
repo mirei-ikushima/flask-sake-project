@@ -3,12 +3,12 @@ from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SelectField, TextAreaField, SubmitField
 from wtforms.validators import InputRequired
 
-region_choices = ['Hokkaido', 'Aomori', 'Iwate', 'Miyagi', 'Akita', 'Yamagata', 'Fukushima', 'Ibaraki', 'Tochigi',
-                  'Gunma', 'Saitama', 'Chiba', 'Tokyo', 'Kanagawa', 'Niigata', 'Toyama', 'Ishikawa', 'Fukui',
-                  'Yamanashi', 'Nagano', 'Gifu', 'Shizuoka', 'Aichi', 'Mie', 'Shiga', 'Kyoto', 'Osaka', 'Hyogo', 'Nara',
-                  'Wakayama', 'Tottori', 'Shimane', 'Okayama', 'Hiroshima', 'Yamaguchi', 'Tokushima', 'Kagawa', 'Ehime',
-                  'Kochi', 'Fukuoka', 'Saga', 'Nagasaki', 'Kumamoto', 'Oita', 'Miyazaki', 'Kagoshima', 'Okinawa',
-                  "Don't know or don't care"]
+region_choices = ['Aichi', 'Akita', 'Aomori', 'Chiba', 'Ehime', 'Fukui', 'Fukuoka', 'Fukushima', 'Gifu', 'Gunma',
+                  'Hyogo', 'Hokkaido', 'Hiroshima', 'Iwate', 'Ibaraki', 'Ishikawa', 'Kochi', 'Kyoto', 'Kagawa',
+                  'Kumamoto', 'Kanagawa', 'Kagoshima', 'Mie', 'Miyagi', 'Miyazaki', 'Nara', 'Nagano', 'Niigata',
+                  'Nagasaki', 'Oita', 'Osaka', 'Okayama', 'Okinawa', 'Saga', 'Shiga', 'Shimane', 'Saitama', 'Shizuoka',
+                  'Tokyo', 'Toyama', 'Tottori', 'Tochigi', 'Tokushima', 'Wakayama', 'Yamagata', 'Yamaguchi',
+                  'Yamanashi', "Don't know or don't care"]
 
 
 class NewBottleForm(FlaskForm):
