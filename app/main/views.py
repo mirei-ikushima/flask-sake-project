@@ -1,6 +1,7 @@
 import os
 from flask import render_template, redirect, url_for, abort
 from flask_login import login_required, current_user
+from flask_babel import _
 from werkzeug.utils import secure_filename
 from app import create_app
 from . import main
@@ -48,7 +49,7 @@ def all_collections(page):
     return render_template('gallery.html',
                            users=users,
                            total_num=total_collections,
-                           title='Browse Collections')
+                           title=(_('Browse Collections')))
 
 
 @main.route('/collection/newbottle', methods=['GET', 'POST'])
@@ -96,7 +97,7 @@ def update_collection():
                                 name=current_user.username))
 
     return render_template('new_bottle.html',
-                           title='New Bottle',
+                           title=(_('New Bottle')),
                            bottle_form=bottle_form,
                            originalbottle=None)
 
@@ -139,7 +140,7 @@ def edit_bottle(id):
                                 name=current_user.username))
 
     return render_template('new_bottle.html',
-                           title='Edit {0}'.format(label),
+                           title=('Edit {0}'.format(label)),
                            bottle_form=edit_form,
                            originalbottle=bottle_id)
 

@@ -1,5 +1,6 @@
 from flask import redirect, url_for, render_template, flash
 from flask_login import login_user, logout_user, login_required, current_user
+from flask_babel import _
 from . import auth
 from .forms import RegistrationForm, LoginForm, PasswordResetRequest, PasswordResetForm
 from ..models import User
@@ -20,7 +21,7 @@ def register():
                    user.email, user=user)
         return redirect(url_for("auth.login"))
 
-    title = "Register"
+    title = _("Register")
     return render_template("auth/register.html",
                            reg_form=reg_form,
                            title=title)
@@ -36,9 +37,9 @@ def login():
             return redirect(url_for("main.collection",
                                     name=user.username))
         else:
-            flash("Incorrect username or password")
+            flash(_("Incorrect username or password"))
 
-    title = "Log in"
+    title = _("Log in")
     return render_template("auth/login.html",
                            login_form=login_form,
                            title=title)
@@ -63,7 +64,7 @@ def request_reset_password():
 
     return render_template("auth/reset_pass_request.html",
                            request_form=request_form,
-                           title="Request Password Reset")
+                           title=_("Request Password Reset"))
 
 
 @auth.route('/reset_password/<token>', methods=['GET', 'POST'])
@@ -85,6 +86,7 @@ def reset_password(token):
         return redirect(url_for('auth.login'))
 
     return render_template('auth/reset_password.html',
+                           title=_('Reset Password'),
                            reset_form=reset_form)
 
 

@@ -1,0 +1,601 @@
+# Japanese translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-05-03 17:08+0100\n"
+"PO-Revision-Date: 2021-05-03 12:50+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: app/auth/forms.py:10 app/auth/forms.py:28
+msgid "Username:"
+msgstr "ユーザー名："
+
+#: app/auth/forms.py:11
+msgid "Your Email Address:"
+msgstr "メールアドレス："
+
+#: app/auth/forms.py:12 app/auth/forms.py:29
+msgid "Password:"
+msgstr "パスワード："
+
+#: app/auth/forms.py:14
+msgid "Password entries must match"
+msgstr "パスワード入力は一致しなければなりません"
+
+#: app/auth/forms.py:15
+msgid "Confirm Password:"
+msgstr "パスワードをもう一度入力してください："
+
+#: app/auth/forms.py:16 app/auth/views.py:24 app/templates/auth/register.html:5
+#: app/templates/auth/register.html:28
+msgid "Register"
+msgstr "登録"
+
+#: app/auth/forms.py:20
+msgid "That email has already been used to create an account"
+msgstr "そのメールアドレスはもうアカウント登録のために使われました"
+
+#: app/auth/forms.py:24
+msgid "There is already an account with that username"
+msgstr "もう同じユーザー名のアカウントが存在します"
+
+#: app/auth/forms.py:30
+msgid "Remember me?"
+msgstr "ユーザーを覚えてもいいですか？"
+
+#: app/auth/forms.py:31
+msgid "Sign In"
+msgstr "ログイン"
+
+#: app/auth/forms.py:35
+msgid "Email Address:"
+msgstr "メールアドレス："
+
+#: app/auth/forms.py:36
+msgid "Send Request"
+msgstr "依頼を送る"
+
+#: app/auth/forms.py:40
+msgid "New Password:"
+msgstr "新しいパスワード"
+
+#: app/auth/forms.py:41
+msgid "Repeat Password:"
+msgstr "パスワードをもう一度入力してください："
+
+#: app/auth/forms.py:42 app/auth/views.py:89
+#: app/templates/auth/reset_password.html:16
+msgid "Reset Password"
+msgstr "パスワードをリセットする"
+
+#: app/auth/views.py:40
+msgid "Incorrect username or password"
+msgstr "ユーザー名またはパスワードが正しくありません"
+
+#: app/auth/views.py:42 app/templates/auth/login.html:27
+msgid "Log in"
+msgstr "ログイン"
+
+#: app/auth/views.py:67
+msgid "Request Password Reset"
+msgstr "パスワードリセットを依頼する"
+
+#: app/main/forms.py:8
+msgid "Aichi"
+msgstr "愛知県"
+
+#: app/main/forms.py:8
+msgid "Akita"
+msgstr "秋田県"
+
+#: app/main/forms.py:8
+msgid "Aomori"
+msgstr "青森県"
+
+#: app/main/forms.py:8
+msgid "Chiba"
+msgstr "千葉県"
+
+#: app/main/forms.py:8
+msgid "Ehime"
+msgstr "愛媛県"
+
+#: app/main/forms.py:8
+msgid "Fukui"
+msgstr "福井県"
+
+#: app/main/forms.py:8
+msgid "Fukuoka"
+msgstr "福岡県"
+
+#: app/main/forms.py:9
+msgid "Fukushima"
+msgstr "福島県"
+
+#: app/main/forms.py:9
+msgid "Gifu"
+msgstr "岐阜県"
+
+#: app/main/forms.py:9
+msgid "Gunma"
+msgstr "群馬県"
+
+#: app/main/forms.py:9
+msgid "Hyogo"
+msgstr "兵庫県"
+
+#: app/main/forms.py:9
+msgid "Hokkaido"
+msgstr "北海道"
+
+#: app/main/forms.py:9
+msgid "Hiroshima"
+msgstr "広島県"
+
+#: app/main/forms.py:9
+msgid "Iwate"
+msgstr "岩手県"
+
+#: app/main/forms.py:10
+msgid "Ibaraki"
+msgstr "茨城県"
+
+#: app/main/forms.py:10
+msgid "Ishikawa"
+msgstr "石川県"
+
+#: app/main/forms.py:10
+msgid "Kochi"
+msgstr "高知県"
+
+#: app/main/forms.py:10
+msgid "Kyoto"
+msgstr "京都府"
+
+#: app/main/forms.py:10
+msgid "Kagawa"
+msgstr "香川県"
+
+#: app/main/forms.py:10
+msgid "Kumamoto"
+msgstr "熊本県"
+
+#: app/main/forms.py:10
+msgid "Kanagawa"
+msgstr "神奈川県"
+
+#: app/main/forms.py:11
+msgid "Kagoshima"
+msgstr "鹿児島県"
+
+#: app/main/forms.py:11
+msgid "Mie"
+msgstr "三重県"
+
+#: app/main/forms.py:11
+msgid "Miyagi"
+msgstr "宮城県"
+
+#: app/main/forms.py:11
+msgid "Miyazaki"
+msgstr "宮崎県"
+
+#: app/main/forms.py:11
+msgid "Nara"
+msgstr "奈良県"
+
+#: app/main/forms.py:11
+msgid "Nagano"
+msgstr "長野県"
+
+#: app/main/forms.py:11
+msgid "Niigata"
+msgstr "新潟県"
+
+#: app/main/forms.py:12
+msgid "Nagasaki"
+msgstr "長崎県"
+
+#: app/main/forms.py:12
+msgid "Oita"
+msgstr "大分県"
+
+#: app/main/forms.py:12
+msgid "Osaka"
+msgstr "大阪府"
+
+#: app/main/forms.py:12
+msgid "Okayama"
+msgstr "岡山県"
+
+#: app/main/forms.py:12
+msgid "Okinawa"
+msgstr "沖縄県"
+
+#: app/main/forms.py:12
+msgid "Saga"
+msgstr "佐賀県"
+
+#: app/main/forms.py:12
+msgid "Shiga"
+msgstr "滋賀県"
+
+#: app/main/forms.py:13
+msgid "Shimane"
+msgstr "島根県"
+
+#: app/main/forms.py:13
+msgid "Saitama"
+msgstr "埼玉県"
+
+#: app/main/forms.py:13
+msgid "Shizuoka"
+msgstr "静岡県"
+
+#: app/main/forms.py:13
+msgid "Tokyo"
+msgstr "東京都"
+
+#: app/main/forms.py:13
+msgid "Toyama"
+msgstr "富山県"
+
+#: app/main/forms.py:13
+msgid "Tottori"
+msgstr "鳥取県"
+
+#: app/main/forms.py:13
+msgid "Tochigi"
+msgstr "栃木県"
+
+#: app/main/forms.py:14
+msgid "Tokushima"
+msgstr "徳島県"
+
+#: app/main/forms.py:14
+msgid "Wakayama"
+msgstr "和歌山県"
+
+#: app/main/forms.py:14
+msgid "Yamagata"
+msgstr "山形県"
+
+#: app/main/forms.py:14
+msgid "Yamaguchi"
+msgstr "山口県"
+
+#: app/main/forms.py:14
+msgid "Yamanashi"
+msgstr "山梨県"
+
+#: app/main/forms.py:15
+msgid "Don't know or don't care"
+msgstr "知りません"
+
+#: app/main/forms.py:19
+msgid "Label"
+msgstr "ラベル"
+
+#: app/main/forms.py:20 app/templates/bottle.html:45
+msgid "Identifier"
+msgstr "識別子"
+
+#: app/main/forms.py:21
+msgid "Photo"
+msgstr "写真"
+
+#: app/main/forms.py:21
+msgid "Incorrect file format"
+msgstr "ファイルフォーマットが正しくありません"
+
+#: app/main/forms.py:22
+msgid "Category"
+msgstr "種類"
+
+#: app/main/forms.py:22
+msgid "Honjozo-shu"
+msgstr "本醸造酒"
+
+#: app/main/forms.py:22
+msgid "Junmai-shu"
+msgstr "純米酒"
+
+#: app/main/forms.py:22
+msgid "Ginjo-shu"
+msgstr "吟醸酒"
+
+#: app/main/forms.py:23
+msgid "Junmai Ginjo-shu"
+msgstr "純米吟醸酒"
+
+#: app/main/forms.py:23
+msgid "Daiginjo-shu"
+msgstr "大吟醸酒"
+
+#: app/main/forms.py:24
+msgid "Junmai Daiginjo-shu"
+msgstr "純米大吟醸酒"
+
+#: app/main/forms.py:25
+msgid "Maker"
+msgstr "酒造場"
+
+#: app/main/forms.py:26
+msgid "Status"
+msgstr "状態"
+
+#: app/main/forms.py:26
+msgid "Unopened"
+msgstr "未開栓"
+
+#: app/main/forms.py:26
+msgid "Opened"
+msgstr "開栓後"
+
+#: app/main/forms.py:26
+msgid "Finished"
+msgstr "飲み終えた"
+
+#: app/main/forms.py:28 app/templates/bottle.html:61
+msgid "Region"
+msgstr "地方"
+
+#: app/main/forms.py:29
+msgid "Price"
+msgstr "値段"
+
+#: app/main/forms.py:30 app/templates/bottle.html:73
+msgid "Notes"
+msgstr "注釈"
+
+#: app/main/forms.py:31
+msgid "Submit"
+msgstr "セーブ"
+
+#: app/main/views.py:52 app/templates/base.html:14 app/templates/navbar.html:43
+msgid "Browse Collections"
+msgstr "他のコレクションを見る"
+
+#: app/main/views.py:100
+msgid "New Bottle"
+msgstr "新しい瓶"
+
+#: app/templates/404.html:6
+msgid "404: Page not found"
+msgstr "404: 指定されたページが見つかりません"
+
+#: app/templates/404.html:9
+msgid "You may have entered a URL incorrectly, or the page no longer exists."
+msgstr "URLが間違っていますかまたはページはもう存在しません。"
+
+#: app/templates/500.html:4
+msgid "An unexpected internal server error has occurred."
+msgstr "サーバー内部でエラーが発生し、リクエストに終える事が出来ませんです。"
+
+#: app/templates/500.html:5
+msgid ""
+"We apologize for the inconvenience. Please click the link below to return"
+" to the index page."
+msgstr "ご迷惑をおかけし申し訳ありません。以下のリンクからご覧になりたいページをお探しください。"
+
+#: app/templates/500.html:6
+msgid "Go back"
+msgstr "トップへ"
+
+#: app/templates/base.html:17
+msgid "Samuel Arnold-Parra"
+msgstr "サミュエル・アーノルド"
+
+#: app/templates/base.html:19
+#, python-format
+msgid "Built by %(name)s"
+msgstr "サイトの作成者: %(name)s"
+
+#: app/templates/bottle.html:15
+msgid "Edit"
+msgstr "アップデート"
+
+#: app/templates/bottle.html:17
+msgid "Delete"
+msgstr "消す"
+
+#: app/templates/bottle.html:38
+msgid "Owner"
+msgstr "持ち主"
+
+#: app/templates/bottle.html:49
+msgid "No identifier provided."
+msgstr "識別子がありません。"
+
+#: app/templates/bottle.html:53
+msgid "Brewery"
+msgstr "酒造場"
+
+#: app/templates/bottle.html:57
+msgid "Type"
+msgstr "種類"
+
+#: app/templates/bottle.html:65
+msgid "Bottle Status"
+msgstr "瓶の状態"
+
+#: app/templates/bottle.html:69
+msgid "Price paid"
+msgstr "値段"
+
+#: app/templates/bottle.html:77
+msgid "Date added"
+msgstr "投稿日"
+
+#: app/templates/collection.html:10
+#, python-format
+msgid "%(username)s's Collection"
+msgstr "%(username)sのコレクション"
+
+#: app/templates/collection.html:18
+#, python-format
+msgid "%(username)s's total collection: %(user_total)s bottle(s)"
+msgstr "%(username)sの瓶の数: %(user_total)s本"
+
+#: app/templates/collection.html:41
+msgid "Owner:"
+msgstr "持ち主:"
+
+#: app/templates/collection.html:46
+msgid "Identifier:"
+msgstr "識別子:"
+
+#: app/templates/collection.html:49
+msgid "Brewed by:"
+msgstr "酒造場:"
+
+#: app/templates/collection.html:51
+msgid "Type:"
+msgstr "種類:"
+
+#: app/templates/collection.html:53
+msgid "Status:"
+msgstr "状態:"
+
+#: app/templates/collection.html:55
+msgid "Date added:"
+msgstr "投稿日"
+
+#: app/templates/collection.html:63 app/templates/new_bottle.html:13
+msgid "Add a new bottle"
+msgstr "新しい瓶を追加する"
+
+#: app/templates/collection.html:64
+msgid "Add New Bottle"
+msgstr "新しい瓶を追加する"
+
+#: app/templates/collection.html:86
+msgid "You haven't added any bottles to your collection!"
+msgstr "まだ瓶をコレクションに追加した事がありません！"
+
+#: app/templates/collection.html:88
+msgid "Add a bottle now"
+msgstr "今すぐ瓶を加える"
+
+#: app/templates/gallery.html:6
+#, python-format
+msgid "%(total_num)s collection(s) available"
+msgstr "計コレクションの数: %(total_num)s個"
+
+#: app/templates/gallery.html:16
+#, python-format
+msgid "%(user_bottles_count)s bottle(s), including:"
+msgstr "計%(user_bottles_count)s本の瓶。その中には:"
+
+#: app/templates/gallery.html:56
+msgid "Looks like nobody has created a collection yet!"
+msgstr "まだ誰もコレクションを作っていないようです。"
+
+#: app/templates/index.html:8 app/templates/navbar.html:6
+#: app/templates/navbar.html:18
+msgid "Sake Collection"
+msgstr "日本酒コレクション"
+
+#: app/templates/index.html:10
+msgid "Build a record of your sake collection!"
+msgstr "日本酒のコレクションを記録しましょう！"
+
+#: app/templates/index.html:11
+msgid "Register for free!"
+msgstr "無料で登録してください！"
+
+#: app/templates/index.html:20
+msgid "What sakes have you bought before?"
+msgstr "あなたは過去にはどんな日本酒を買った事がありますか？"
+
+#: app/templates/index.html:22
+msgid "Sake Collection helps you keep track of your favourite sake!"
+msgstr "「日本酒コレクション」であなたは自分の好きな日本酒の記録を作れます！"
+
+#: app/templates/index.html:24
+msgid ""
+"Add notes and keep a list so you can remember why you liked that one "
+"bottle!"
+msgstr "注釈を書いたり、リストを作ったりする事で、なぜあの日本酒が好きだったか覚えましょう！"
+
+#: app/templates/navbar.html:8
+msgid "Welcome to Sake Collection!"
+msgstr "ようこそ、日本酒コレクションへ！"
+
+#: app/templates/navbar.html:29
+msgid "Log in/Register"
+msgstr "ログイン・登録"
+
+#: app/templates/navbar.html:31
+msgid "Log out"
+msgstr "ログアウト"
+
+#: app/templates/navbar.html:37
+msgid "Your Collection"
+msgstr "あなたのコレクション"
+
+#: app/templates/new_bottle.html:11
+#, python-format
+msgid "Edit %(original_label)s"
+msgstr "%(original_label)sをアップデートする"
+
+#: app/templates/new_bottle.html:72
+msgid "Save"
+msgstr "セーブ"
+
+#: app/templates/auth/login.html:5
+msgid "Log In"
+msgstr "ログイン"
+
+#: app/templates/auth/login.html:9
+msgid "Log in and build your collection!"
+msgstr "ログインして、コレクションを作りましょう！"
+
+#: app/templates/auth/login.html:30
+msgid "Don't have an account?"
+msgstr "アカウントがありませんか？"
+
+#: app/templates/auth/login.html:30
+msgid "Sign up"
+msgstr "投稿する"
+
+#: app/templates/auth/login.html:33
+msgid "Forgot your password?"
+msgstr "パスワードを忘れましたか？"
+
+#: app/templates/auth/login.html:34
+msgid "Reset it"
+msgstr "リセットする"
+
+#: app/templates/auth/register.html:9
+msgid "Create an account using your email address!"
+msgstr "メールアドレスでアカウントを登録しましょう！"
+
+#: app/templates/auth/reset_pass_request.html:5
+msgid "Request a password reset"
+msgstr "パスワードリセットを依頼する"
+
+#: app/templates/auth/reset_pass_request.html:9
+msgid "Tell us your email address so we can send you a password reset form!"
+msgstr "パスワードリセットのために、メールアドレスを教えてください。"
+
+#: app/templates/auth/reset_pass_request.html:21
+msgid "Send request"
+msgstr "依頼を送る"
+
+#: app/templates/auth/reset_password.html:5
+msgid "Reset your password"
+msgstr "パスワードをリセットする"
+

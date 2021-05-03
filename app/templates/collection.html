@@ -7,7 +7,7 @@
             <div>
                 <div id="profile_header" class="row justify-content-md-left align-items-center">
                     <div class="col-auto">
-                        <h3>{{ user.username }}'s Collection
+                        <h3>{{ _("%(username)s's Collection", username=user.username) }}
                             <br>
                         </h3>
                     </div>
@@ -15,7 +15,8 @@
                 <p></p>
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
-                        {{ user.username}}'s total collection: {{ user_total }} bottles
+                        {{ _("%(username)s's total collection: %(user_total)s bottle(s)", username=user.username,
+                        user_total=user_total) }}
                     </div>
                 </div>
                 <div>
@@ -37,21 +38,21 @@
                                         {{ bottle.label }}
                                         </a>
                                     </h3>
-                                    Owner: <a href="{{ url_for('main.collection', name=bottle.owner) }}">
+                                    {{ _('Owner:') }}<a href="{{ url_for('main.collection', name=bottle.owner) }}">
                                     {{ bottle.owner }}
                                 </a>
                                     <br>
                                     {% if bottle.identifier %}
-                                    Identifier: {{ bottle.identifier }}
+                                    {{ _('Identifier:') }} {{ bottle.identifier }}
                                     {% endif %}
                                     <br>
-                                    Brewed by: {{ bottle.maker }}
+                                    {{ _('Brewed by:') }} {{ bottle.maker }}
                                     <br>
-                                    Type: {{ bottle.category }}
+                                    {{ _('Type:') }} {{ bottle.category }}
                                     <br>
-                                    Status: {{ bottle.status }}
+                                    {{ _('Status:') }} {{ bottle.status }}
                                     <br>
-                                    Date added: {{ moment(bottle.posted).format('MMMM Do YYYY') }}
+                                    {{ _('Date added:') }} {{ moment(bottle.posted).format('MMMM Do YYYY') }}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -59,8 +60,8 @@
                     </table>
                     <div class="bottom-floating">
                         <a class="btn-danger btn-sm" href="{{ url_for('main.update_collection') }}"
-                           title="Add a new bottle">
-                            Add New Bottle
+                           title="{{ _('Add a new bottle') }}">
+                            {{ _('Add New Bottle') }}
                         </a>
                     </div>
                     <br>
@@ -82,8 +83,9 @@
                     </nav>
                     {% else %}
                     <div class="alert alert-danger">
-                        <p>You haven't added any bottles to your collection!</p>
-                        <a class="alert-link" href="{{ url_for('main.update_collection') }}">Add a bottle now</a>
+                        <p>{{ _("You haven't added any bottles to your collection!") }}</p>
+                        <a class="alert-link" href="{{ url_for('main.update_collection') }}">
+                            {{ _('Add a bottle now') }}</a>
                     </div>
                     {% endif %}
                 </div>

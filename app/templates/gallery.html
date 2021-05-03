@@ -3,7 +3,7 @@
 {% block content %}
 <main id="main" class="container">
     <div class="row align-items-center justify-content-between">
-        <div class="col-auto"><h4>{{ total_num }} collection(s) available</h4></div>
+        <div class="col-auto"><h4>{{ _('%(total_num)s collection(s) available', total_num=total_num) }}</h4></div>
     </div>
     {% if users %}
     <ul class="list-group list-group-flush">
@@ -12,7 +12,9 @@
             <div class="row justify-content-md-left">
                 <div class="col-auto">
                     <h3><a href="{{ url_for('main.collection', name=user.username) }}">{{ user.username }}</a></h3>
-                    <h6 class="text-muted">{{ user.bottles.count() }} bottles, including:</h6>
+                    <h6 class="text-muted">
+                        {{ _('%(user_bottles_count)s bottle(s), including:', user_bottles_count=user.bottles.count()) }}
+                    </h6>
                 </div>
             </div>
             <div class="container">
@@ -51,7 +53,7 @@
     </nav>
     {% else %}
     <div class="alert alert-danger">
-        <p>Looks like nobody has created a collection yet!</p>
+        <p>{{ _('Looks like nobody has created a collection yet!') }}</p>
     </div>
     {% endif %}
 </main>

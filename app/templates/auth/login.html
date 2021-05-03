@@ -2,11 +2,11 @@
 
 {% block content %}
 <main class="container">
-    <h2>Log In</h2>
+    <h2>{{ _('Log In') }}</h2>
     <div class="row">
         <div class="col-md-8">
             <p>
-                Log in and build your collection!
+                {{ _('Log in and build your collection!') }}
             </p>
             <p>
             </p>
@@ -24,13 +24,14 @@
                 <p>
                     {{ login_form.remember_me.label }} {{ login_form.remember_me() }}
                 </p>
-                <input type="submit" value="Log in">
+                <input type="submit" value="{{ _('Log in') }}">
             </form>
             <p>
-                Don't have an account? <a href="{{ url_for('auth.register') }}">Sign up</a>
+                {{ _("Don't have an account?") }} <a href="{{ url_for('auth.register') }}">{{ _('Sign up') }}</a>
             </p>
             <p>
-                Forgot your password? <a href="{{ url_for('auth.request_reset_password') }}">Reset it</a>
+                {{ _('Forgot your password?') }}<a href="{{ url_for('auth.request_reset_password') }}">
+                                                {{ _('Reset it') }}</a>
             </p>
             {% for field, errors in login_form.errors.items() %}
             <div class="alert alert-error">

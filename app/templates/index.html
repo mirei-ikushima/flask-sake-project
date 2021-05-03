@@ -4,9 +4,11 @@
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-            <h1 class="mx-auto my-0 text-uppercase">Sake Collection</h1>
-            <h2 class="mx-auto mt-2 mb-5">Build a record of your sake collection!</h2>
-            <a class="btn-lg btn-danger" href="{{ url_for('auth.register') }}">Register for free!</a>
+            <br>
+            <h1 class="mx-auto my-0 text-uppercase">{{ _('Sake Collection') }}</h1>
+            <br>
+            <h2 class="mx-auto mt-2 mb-5">{{ _('Build a record of your sake collection!') }}</h2>
+            <a class="btn-lg btn-danger" href="{{ url_for('auth.register') }}">{{ _('Register for free!') }}</a>
         </div>
     </div>
 </header>
@@ -14,11 +16,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2 class="text-dark mb-4">What sakes have you bought before?</h2>
+                <br>
+                <h2 class="text-dark mb-4">{{ _('What sakes have you bought before?') }}</h2>
                 <p class="text-dark">
-                    Sake Collection helps you keep track of your favourite sake!
+                    {{ _('Sake Collection helps you keep track of your favourite sake!') }}
                     <br>
-                    Add notes and keep a list so you can remember why you liked that one bottle!
+                    {{ _('Add notes and keep a list so you can remember why you liked that one bottle!') }}
                 </p>
             </div>
         </div>

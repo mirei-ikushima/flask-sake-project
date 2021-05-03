@@ -2,11 +2,11 @@
 
 {% block content %}
 <main class="container">
-    <h2>Request a password reset</h2>
+    <h2>{{ _('Request a password reset') }}</h2>
     <div class="row">
         <div class="col-md-8">
             <p>
-                Tell us your email address so we can send you a password reset form!
+                {{ _('Tell us your email address so we can send you a password reset form!') }}
             </p>
             <p>
             </p>
@@ -18,7 +18,7 @@
                 <p>
                     {{ request_form.email.label }} {{ request_form.email }}
                 </p>
-                <input type="submit" value="Send request">
+                <input type="submit" value="{{ _('Send request') }}">
             </form>
         </div>
     </div>

@@ -8,9 +8,9 @@
                 {{ bottle_form.csrf_token }}
                 <div class="modal-header">
                     {% if originalbottle.label %}
-                    <h4 class="modal-title">Edit {{ originalbottle.label }}</h4>
+                    <h4 class="modal-title">{{ _('Edit %(original_label)s', original_label=originalbottle.label) }}</h4>
                     {% else %}
-                    <h4 class="modal-title">Add a new bottle</h4>
+                    <h4 class="modal-title">{{ _('Add a new bottle') }}</h4>
                     {% endif %}
                 </div>
                 <div class="modal-body">
@@ -69,7 +69,7 @@
                         {{ bottle_form.notes }}
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" value="Save">
+                        <input type="submit" value="{{ _('Save') }}">
                     </div>
                 </div>
             </form>

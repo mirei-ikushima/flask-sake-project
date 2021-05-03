@@ -11,9 +11,10 @@
             {% if current_user.id == bottle.user_id %}
             <div class="bottom-floating">
                 <div class="btn-group" role="group" aria-label="Button group">
-                    <a class="button btn alert-dark" href="{{ url_for('main.edit_bottle', id=bottle.id) }}">Edit</a>
+                    <a class="button btn alert-dark" href="{{ url_for('main.edit_bottle', id=bottle.id) }}">
+                        {{ _('Edit') }}</a>
                     <form method="post" action="{{ url_for('main.delete_bottle', id=bottle.id) }}">
-                        <input class="button btn alert-dark" type="submit" name="delete" value="Delete">
+                        <input class="button btn alert-dark" type="submit" name="delete" value="{{ _('Delete') }}">
                     </form>
                 </div>
             </div>
@@ -34,46 +35,46 @@
                 <tbody>
                 <tr>
                     <td>
-                        Owner
+                        {{ _('Owner') }}
                     </td>
                     <td>
                         <a href="{{ url_for('main.collection', name=bottle.owner) }}">{{ bottle.owner }}</a>
                     </td>
                 </tr>
                 <tr>
-                    <td>Identifier</td>
+                    <td>{{ _('Identifier') }}</td>
                     {% if bottle.identifier %}
                     <td>{{ bottle.identifier }}</td>
                     {% else %}
-                    <td>No identifier provided.</td>
+                    <td>{{ _('No identifier provided.') }}</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>Brewery</td>
+                    <td>{{ _('Brewery') }}</td>
                     <td>{{ bottle.maker }}</td>
                 </tr>
                 <tr>
-                    <td>Type</td>
+                    <td>{{ _('Type') }}</td>
                     <td>{{ bottle.category }}</td>
                 </tr>
                 <tr>
-                    <td>Region</td>
+                    <td>{{ _('Region') }}</td>
                     <td>{{ bottle.region }}</td>
                 </tr>
                 <tr>
-                    <td>Bottle Status</td>
+                    <td>{{ _('Bottle Status') }}</td>
                     <td>{{ bottle.status }}</td>
                 </tr>
                 <tr>
-                    <td>Price paid</td>
+                    <td>{{ _('Price paid') }}</td>
                     <td>{{ bottle.price }}</td>
                 </tr>
                 <tr>
-                    <td>Notes</td>
+                    <td>{{ _('Notes') }}</td>
                     <td>{{ bottle.notes }}</td>
                 </tr>
                 <tr>
-                    <td>Date added</td>
+                    <td>{{ _('Date added') }}</td>
                     <td>{{ moment(bottle.posted).format('MMMM Do YYYY') }}</td>
                 </tr>
                 </tbody>

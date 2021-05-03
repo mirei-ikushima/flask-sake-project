@@ -11,9 +11,12 @@
         <div class="row justify-content-md-left align-items-center">
             <div class="col-xsm">
                 <br>
-                <a href="{{ url_for('main.all_collections') }}">Browse Collections</a>
+                <a href="{{ url_for('main.all_collections') }}">{{ _('Browse Collections') }}</a>
                 <br>
-                Built by <a href="https://github.com/A-PS1999/flask-sake-project">Samuel Arnold-Parra</a>
+                {% set git_link %}
+                    <a href="https://github.com/A-PS1999/flask-sake-project">{{ _('Samuel Arnold-Parra') }}</a>
+                {% endset %}
+                {{ _('Built by %(name)s', name=git_link) }}
                 <br>
             </div>
         </div>

@@ -2,11 +2,11 @@
 
 {% block content %}
 <main class="container">
-    <h2>Register</h2>
+    <h2>{{ _('Register') }}</h2>
     <div class="row">
         <div class="col-md-8">
             <p>
-                Create an account using your email address!
+                {{ _('Create an account using your email address!') }}
             </p>
             <p>
             </p>
@@ -25,7 +25,7 @@
                     {{ reg_form.password.label }} {{ reg_form.password(size=32) }}<br>
                     {{ reg_form.confirm_password.label }} {{ reg_form.confirm_password(size=32) }}
                 </p>
-                <input type="submit" value="Register">
+                <input type="submit" value="{{ _('Register') }}">
             </form>
             {% for field, errors in reg_form.errors.items() %}
             <div class="alert alert-error">

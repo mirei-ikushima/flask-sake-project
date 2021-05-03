@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>An unexpected internal server error has occured.</h1>
-<p>We apologize for the inconvenience. Please click the link below to return to the index page.</p>
-<p><a href="{{ url_for('main.index') }}">Go back</a></p>
+<h1>{{ _('An unexpected internal server error has occurred.') }}</h1>
+<p>{{ _('We apologize for the inconvenience. Please click the link below to return to the index page.') }}</p>
+<p><a href="{{ url_for('main.index') }}">{{ _('Go back') }}</a></p>
 {% endblock %}
