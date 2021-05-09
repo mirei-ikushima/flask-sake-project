@@ -45,15 +45,15 @@ msgstr "登録"
 
 #: app/auth/forms.py:20
 msgid "That email has already been used to create an account"
-msgstr "そのメールアドレスはもうアカウント登録のために使われました"
+msgstr "そのメールアドレスは既に使用されています"
 
 #: app/auth/forms.py:24
 msgid "There is already an account with that username"
-msgstr "もう同じユーザー名のアカウントが存在します"
+msgstr "既に同じユーザー名のアカウントが存在します"
 
 #: app/auth/forms.py:30
 msgid "Remember me?"
-msgstr "ユーザーを覚えてもいいですか？"
+msgstr "ユーザー名を保存しますか？"
 
 #: app/auth/forms.py:31
 msgid "Sign In"
