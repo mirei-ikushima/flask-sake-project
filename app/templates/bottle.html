@@ -7,12 +7,14 @@
         <div class="col-md-6">
             <h2>{{ bottle.label }}</h2>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-1">
             {% if current_user.id == bottle.user_id %}
-            <div class="bottom-floating">
-                <div class="btn-group" role="group" aria-label="Button group">
+            <div class="d-flex">
+                <div class="container">
                     <a class="button btn alert-dark" href="{{ url_for('main.edit_bottle', id=bottle.id) }}">
                         {{ _('Edit') }}</a>
+                </div>
+                <div class="container">
                     <form method="post" action="{{ url_for('main.delete_bottle', id=bottle.id) }}">
                         <input class="button btn alert-dark" type="submit" name="delete" value="{{ _('Delete') }}">
                     </form>

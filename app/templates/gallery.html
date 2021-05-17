@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row d-flex align-items-center">
+                <div class="d-flex flex-row align-items-center">
                     {% for bottle in user.bottles[:12] %}
                     <a href="{{ url_for('main.single_bottle', id=bottle.id) }}">
                         {% if user.bottles.photo %}
