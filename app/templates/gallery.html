@@ -21,11 +21,11 @@
                 <div class="d-flex flex-row align-items-center">
                     {% for bottle in user.bottles[:12] %}
                     <a href="{{ url_for('main.single_bottle', id=bottle.id) }}">
-                        {% if user.bottles.photo %}
+                        {% if bottle.photo %}
                         <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}" height="60" vspace="10"
                         hspace="5">
                         {% else %}
-                        <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="" height="60"
+                        <img src="{{ url_for('static', filename='images/nihonshu.png') }}" alt="" height="60"
                              vspace="10" hspace="5">
                         {% endif %}
                     </a>
