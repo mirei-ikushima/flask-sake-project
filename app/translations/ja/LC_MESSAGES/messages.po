@@ -90,7 +90,7 @@ msgstr "ログイン"
 
 #: app/auth/views.py:67
 msgid "Request Password Reset"
-msgstr "パスワードリセットを依頼する"
+msgstr "パスワードをリセットする"
 
 #: app/main/forms.py:8
 msgid "Aichi"
@@ -282,7 +282,7 @@ msgstr "山梨県"
 
 #: app/main/forms.py:15
 msgid "Don't know or don't care"
-msgstr "知りません"
+msgstr "その他"
 
 #: app/main/forms.py:19
 msgid "Label"
@@ -362,7 +362,7 @@ msgstr "注釈"
 
 #: app/main/forms.py:31
 msgid "Submit"
-msgstr "セーブ"
+msgstr "登録"
 
 #: app/main/views.py:52 app/templates/base.html:14 app/templates/navbar.html:43
 msgid "Browse Collections"
@@ -378,17 +378,17 @@ msgstr "404: 指定されたページが見つかりません"
 
 #: app/templates/404.html:9
 msgid "You may have entered a URL incorrectly, or the page no longer exists."
-msgstr "URLが間違っていますかまたはページはもう存在しません。"
+msgstr "URLが間違っている、または指定のページはもう存在しません。"
 
 #: app/templates/500.html:4
 msgid "An unexpected internal server error has occurred."
-msgstr "サーバー内部でエラーが発生し、リクエストに終える事が出来ませんです。"
+msgstr "サーバー内部でエラーが発生しました。"
 
 #: app/templates/500.html:5
 msgid ""
 "We apologize for the inconvenience. Please click the link below to return"
 " to the index page."
-msgstr "ご迷惑をおかけし申し訳ありません。以下のリンクからご覧になりたいページをお探しください。"
+msgstr "ご迷惑をおかけしてしまい、申し訳ありません。以下のリンクから、ご覧になりたいページをお探しください。"
 
 #: app/templates/500.html:6
 msgid "Go back"
@@ -409,7 +409,7 @@ msgstr "アップデート"
 
 #: app/templates/bottle.html:17
 msgid "Delete"
-msgstr "消す"
+msgstr "削除"
 
 #: app/templates/bottle.html:38
 msgid "Owner"
@@ -483,7 +483,7 @@ msgstr "新しい瓶を追加する"
 
 #: app/templates/collection.html:86
 msgid "You haven't added any bottles to your collection!"
-msgstr "まだ瓶をコレクションに追加した事がありません！"
+msgstr "まだコレクションに何も追加されていません！"
 
 #: app/templates/collection.html:88
 msgid "Add a bottle now"
@@ -492,7 +492,7 @@ msgstr "今すぐ瓶を加える"
 #: app/templates/gallery.html:6
 #, python-format
 msgid "%(total_num)s collection(s) available"
-msgstr "計コレクションの数: %(total_num)s個"
+msgstr "コレクションの数: %(total_num)s個"
 
 #: app/templates/gallery.html:16
 #, python-format
@@ -522,13 +522,13 @@ msgstr "あなたは過去にはどんな日本酒を買った事があります
 
 #: app/templates/index.html:22
 msgid "Sake Collection helps you keep track of your favourite sake!"
-msgstr "「日本酒コレクション」であなたは自分の好きな日本酒の記録を作れます！"
+msgstr "「日本酒コレクション」では、あなたの好きな日本酒の記録を作ることができます！"
 
 #: app/templates/index.html:24
 msgid ""
 "Add notes and keep a list so you can remember why you liked that one "
 "bottle!"
-msgstr "注釈を書いたり、リストを作ったりする事で、なぜあの日本酒が好きだったか覚えましょう！"
+msgstr "注釈を書いたり、リストを作ったりする事で、なぜあの日本酒が好きだったかを記録していきましょう！"
 
 #: app/templates/navbar.html:8
 msgid "Welcome to Sake Collection!"
@@ -553,7 +553,7 @@ msgstr "%(original_label)sをアップデートする"
 
 #: app/templates/new_bottle.html:72
 msgid "Save"
-msgstr "セーブ"
+msgstr "保存"
 
 #: app/templates/auth/login.html:5
 msgid "Log In"
@@ -565,15 +565,15 @@ msgstr "ログインして、コレクションを作りましょう！"
 
 #: app/templates/auth/login.html:30
 msgid "Don't have an account?"
-msgstr "アカウントがありませんか？"
+msgstr "アカウントを持っていませんか？"
 
 #: app/templates/auth/login.html:30
 msgid "Sign up"
-msgstr "投稿する"
+msgstr "登録する"
 
 #: app/templates/auth/login.html:33
 msgid "Forgot your password?"
-msgstr "パスワードを忘れましたか？"
+msgstr "パスワードをお忘れですか？"
 
 #: app/templates/auth/login.html:34
 msgid "Reset it"
@@ -585,15 +585,15 @@ msgstr "メールアドレスでアカウントを登録しましょう！"
 
 #: app/templates/auth/reset_pass_request.html:5
 msgid "Request a password reset"
-msgstr "パスワードリセットを依頼する"
+msgstr "パスワードをリセットする"
 
 #: app/templates/auth/reset_pass_request.html:9
 msgid "Tell us your email address so we can send you a password reset form!"
-msgstr "パスワードリセットのために、メールアドレスを教えてください。"
+msgstr "メールアドレスをご記入ください。パスワードリセットフォームをお送りします。"
 
 #: app/templates/auth/reset_pass_request.html:21
 msgid "Send request"
-msgstr "依頼を送る"
+msgstr "リクエストを送る"
 
 #: app/templates/auth/reset_password.html:5
 msgid "Reset your password"
